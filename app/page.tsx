@@ -10,6 +10,12 @@ interface PhoneData {
   local_format: string;
   international_format: string;
   country_prefix: string;
+  country_name:string;
+  carrier:string;
+  line_type:string;
+
+
+
 }
 
 interface ButtonProps {
