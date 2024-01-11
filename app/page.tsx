@@ -30,7 +30,7 @@ async function getData(number: string | Boolean) {
 
 export default function Page() {
   const [number, setNumber] = useState("");
-  const [data, setData]: PhoneData | null = useState("");
+  const [data, setData] = useState("");
 
   const fetchData = async () => {
     try {
