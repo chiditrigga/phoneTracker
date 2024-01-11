@@ -12,6 +12,10 @@ interface PhoneData {
   country_prefix: string;
 }
 
+interface ButtonProps {
+  fetchData: () => void; // Adjust the type based on the fetchData function signature
+}
+
 async function getData(number: string | Boolean) {
   const res = await fetch(
     `https://api.numlookupapi.com/v1/validate/${number}?apikey=num_live_NXBEBEfew0T5wpnvsXzjZnLlkgGbvo3vs1F89wTs`
@@ -57,7 +61,8 @@ export default function Page() {
             onChange={(e) => setNumber(e.target.value)}
           />
 
-          <Button fetchData={fetchData} />
+<button className="font-bold bg-red-700  text-white py-2 mt-2 my-1 rounded w-3/12" onClick={fetchData}>Validate</button>
+
         </div>
         {data && (
           <ul className=" p-2  max-w-md">
