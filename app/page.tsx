@@ -43,7 +43,7 @@ export default function Page() {
       <div className="backdrop-blur-lg md:p-2 rounded-xl">
         <div className="flex">
           <span>
-            <Image width={50} height={50} alt="phone" src={phone} />
+            <Image width={50} height={50} alt="phone" src={phone}  />
           </span>{" "}
           <span className="text-4xl ps-2">Phone Validation</span>
         </div>
