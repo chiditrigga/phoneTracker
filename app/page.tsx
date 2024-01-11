@@ -59,7 +59,7 @@ export default function Page() {
         </div>
         <div className="max-w-md ">
           <input
-            className="border border-gray-300 rounded p-2 w-3/4"
+            className="border border-gray-300 rounded p-2 w-3/4 text-[black]"
             type="tel"
             placeholder="+2348100185232"
             value={number}
