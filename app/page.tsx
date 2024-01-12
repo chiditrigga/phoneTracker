@@ -10,12 +10,10 @@ interface PhoneData {
   local_format: string;
   international_format: string;
   country_prefix: string;
-  country_name:string;
-  carrier:string;
-  line_type:string;
+  country_name: string;
+  carrier: string;
+  line_type: string;
 }
-
-
 
 async function getData(number: string | Boolean) {
   const res = await fetch(
@@ -32,16 +30,16 @@ async function getData(number: string | Boolean) {
 export default function Page() {
   const [number, setNumber] = useState("");
   const [data, setData] = useState<PhoneData | null>(null);
-  const [loading,setLoading] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(false);
 
   const fetchData = async () => {
-    setLoading(true)
-    setData(null)
+    setLoading(true);
+    setData(null);
     try {
       const result = await getData(number);
-       
+
       setData(result);
-      setLoading(false)
+      setLoading(false);
     } catch (error) {
       console.error(error);
     }
@@ -49,16 +47,10 @@ export default function Page() {
 
   return (
     <main className="bg-[url('../public/backImg.jpg')] min-h-screen flex items-center justify-center h-screen flex-col">
-     
-
-    
-      
       <div className="backdrop-blur-lg md:p-2 rounded-xl">
-        
         <div className="flex">
-          
           <span>
-            <Image width={50} height={50} alt="phone" src={phone}  />
+            <Image width={50} height={50} alt="phone" src={phone} />
           </span>{" "}
           <span className="text-4xl ps-2">Phone Validation</span>
         </div>
@@ -72,47 +64,47 @@ export default function Page() {
             onChange={(e) => setNumber(e.target.value)}
           />
 
-<button className="font-bold bg-red-700  text-white py-2  rounded w-3/12" onClick={fetchData}>Validate</button>
-
+          <button
+            className="font-bold bg-red-700  text-white py-2  rounded w-3/12"
+            onClick={fetchData}
+          >
+            Validate
+          </button>
         </div>
-        {loading &&   <div className=" ">
-  <div className="animate-pulse">
-   
-  <div className="flex justify-between my-3">
-          <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
-          <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
-        </div>
-        <div className="flex justify-between my-3">
-          <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
-          <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
-        </div>
-        <div className="flex justify-between my-3">
-          <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
-          <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
-        </div>
-        <div className="flex justify-between my-3">
-          <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
-          <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
-        </div>
-        <div className="flex justify-between my-3">
-          <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
-          <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
-        </div>
-        <div className="flex justify-between my-3">
-          <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
-          <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
-        </div>
-        <div className="flex justify-between my-3">
-          <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
-          <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
-        </div>
-  
-
-  
-  
-        </div>
-  
-</div>}
+        {loading && (
+          <div className=" ">
+            <div className="animate-pulse">
+              <div className="flex justify-between my-3">
+                <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
+                <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
+              </div>
+              <div className="flex justify-between my-3">
+                <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
+                <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
+              </div>
+              <div className="flex justify-between my-3">
+                <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
+                <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
+              </div>
+              <div className="flex justify-between my-3">
+                <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
+                <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
+              </div>
+              <div className="flex justify-between my-3">
+                <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
+                <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
+              </div>
+              <div className="flex justify-between my-3">
+                <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
+                <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
+              </div>
+              <div className="flex justify-between my-3">
+                <div className="h-4 bg-slate-200 rounded-xl  w-20"></div>
+                <div className="h-4 bg-slate-200 rounded-xl w-60"></div>
+              </div>
+            </div>
+          </div>
+        )}
         {data && (
           <ul className=" p-2  max-w-md">
             <li className="flex justify-between max-w-md">
